@@ -3,6 +3,10 @@
 > **An AI-native Engineering Operating System that autonomously manages software delivery workflows.**
 > Developed by **[Ayushrak](https://github.com/Ayushrak)**
 
+<p align="center">
+  <img src="docs/images/scrumos_dashboard_preview.png" alt="AI ScrumOS Dashboard Preview" width="100%">
+</p>
+
 ---
 
 ## 💡 What is AI ScrumOS?
@@ -94,7 +98,7 @@ graph TD
 
 ```
 e:/CODING/Generative_AI/Projects/AIScrumOS/
-├── backend/
+├── backend/                  # Python FastAPI Backend
 │   ├── .env                  # Active environmental variables
 │   ├── .env.example          # Template configuration settings
 │   ├── main.py               # FastAPI gateway & WebSocket manager
@@ -102,25 +106,32 @@ e:/CODING/Generative_AI/Projects/AIScrumOS/
 │   ├── config.py             # Pydantic Configuration loader
 │   ├── requirements.txt      # Python dependencies
 │   └── run.bat               # Windows execution batch script
-├── src/
-│   ├── components/
-│   │   ├── DashboardOverview.jsx   # Live prediction dashboard
-│   │   ├── DigitalTwinGraph.jsx    # Dependency mapping SVG graph
-│   │   ├── SilentBlockers.jsx      # Behavioral build anomaly charts
-│   │   ├── StandupMeetings.jsx     # Audio playback & transcribing sync
-│   │   ├── MemorySystem.jsx        # RAG search citation terminal
-│   │   ├── TechDebt.jsx            # Risk hotspots and bus factor
-│   │   ├── TeamWellness.jsx        # Ethically audited burnout metrics
-│   │   ├── RetroGenerator.jsx      # Autonomous sprint action plans
-│   │   └── Sidebar.jsx             # Cyberpunk sidebar navigator
-│   ├── App.jsx               # REST state syncing & WS listener
-│   ├── index.css             # Neon custom styling layout
-│   ├── main.jsx              # Vite entrypoint
-│   └── mockData.js           # Client-side fallback database
-├── .env                      # Vite active variables
-├── .env.example              # Vite template variables
+├── frontend/                 # React Frontend (Vite)
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── DashboardOverview.jsx   # Live prediction dashboard
+│   │   │   ├── DigitalTwinGraph.jsx    # Dependency mapping SVG graph
+│   │   │   ├── SilentBlockers.jsx      # Behavioral build anomaly charts
+│   │   │   ├── StandupMeetings.jsx     # Audio playback & transcribing sync
+│   │   │   ├── MemorySystem.jsx        # RAG search citation terminal
+│   │   │   ├── TechDebt.jsx            # Risk hotspots and bus factor
+│   │   │   ├── TeamWellness.jsx        # Ethically audited burnout metrics
+│   │   │   ├── RetroGenerator.jsx      # Autonomous sprint action plans
+│   │   │   └── Sidebar.jsx             # Cyberpunk sidebar navigator
+│   │   ├── App.jsx               # REST state syncing & WS listener
+│   │   ├── index.css             # Neon custom styling layout
+│   │   ├── main.jsx              # Vite entrypoint
+│   │   └── mockData.js           # Client-side fallback database
+│   ├── public/
+│   ├── .env                  # Vite active variables
+│   ├── .env.example          # Vite template variables
+│   ├── eslint.config.js      # Linter configurations
+│   ├── package.json          # Frontend package manager
+│   └── vite.config.js        # Vite configurations
+├── docs/                     # Media and documentation
+│   └── images/
+│       └── scrumos_dashboard_preview.png  # Cyperpunk UI Dashboard Preview
 ├── .gitignore                # Excludes secrets, pycaches, node_modules
-├── package.json              # Frontend package manager
 └── README.md                 # Hackathon documentation
 ```
 
@@ -133,7 +144,7 @@ Ensure you have **Python 3** and **Node.js** installed on your system.
 ### 1. Clone & Configure Environments
 Configure the environment variables using templates:
 - Copy `/backend/.env.example` into `/backend/.env`
-- Copy `/.env.example` into `/.env`
+- Copy `/frontend/.env.example` into `/frontend/.env`
 
 ### 2. Start the Backend API Server
 1. Navigate to the backend directory:
@@ -151,9 +162,9 @@ Configure the environment variables using templates:
    *The server starts on `http://127.0.0.1:8000` with active code auto-reloading.*
 
 ### 3. Start the Frontend React Client
-1. Open a new terminal in the project root:
+1. Navigate to the frontend directory from the project root:
    ```powershell
-   cd ..
+   cd frontend
    ```
 2. Install Node packages:
    ```powershell
